@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/caso10_parallel_matroids.dir/Matroids.c.o"
   "CMakeFiles/caso10_parallel_matroids.dir/main.c.o"
   "caso10_parallel_matroids"
   "caso10_parallel_matroids.pdb"

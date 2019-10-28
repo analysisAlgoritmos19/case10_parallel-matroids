@@ -76,6 +76,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids/Matroids.c">
+			<Option target="caso10_parallel_matroids"/>
+		</Unit>
+		<Unit filename="/Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids/Matroids.h">
+			<Option target="caso10_parallel_matroids"/>
+		</Unit>
 		<Unit filename="/Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids/main.c">
 			<Option target="caso10_parallel_matroids"/>
 		</Unit>

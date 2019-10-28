@@ -123,6 +123,33 @@ caso10_parallel_matroids/fast:
 	$(MAKE) -f CMakeFiles/caso10_parallel_matroids.dir/build.make CMakeFiles/caso10_parallel_matroids.dir/build
 .PHONY : caso10_parallel_matroids/fast
 
+Matroids.o: Matroids.c.o
+
+.PHONY : Matroids.o
+
+# target to build an object file
+Matroids.c.o:
+	$(MAKE) -f CMakeFiles/caso10_parallel_matroids.dir/build.make CMakeFiles/caso10_parallel_matroids.dir/Matroids.c.o
+.PHONY : Matroids.c.o
+
+Matroids.i: Matroids.c.i
+
+.PHONY : Matroids.i
+
+# target to preprocess a source file
+Matroids.c.i:
+	$(MAKE) -f CMakeFiles/caso10_parallel_matroids.dir/build.make CMakeFiles/caso10_parallel_matroids.dir/Matroids.c.i
+.PHONY : Matroids.c.i
+
+Matroids.s: Matroids.c.s
+
+.PHONY : Matroids.s
+
+# target to generate assembly for a file
+Matroids.c.s:
+	$(MAKE) -f CMakeFiles/caso10_parallel_matroids.dir/build.make CMakeFiles/caso10_parallel_matroids.dir/Matroids.c.s
+.PHONY : Matroids.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... caso10_parallel_matroids"
+	@echo "... Matroids.o"
+	@echo "... Matroids.i"
+	@echo "... Matroids.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
