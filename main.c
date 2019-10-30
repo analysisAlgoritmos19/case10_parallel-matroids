@@ -3,108 +3,96 @@
 #include <stdbool.h>
 
 struct Matroid {
-
     void *S;
     void *I;
-    void (*function) (void*);
+    void* (*function) (void *);
 };
 
-bool is_pair(int number_to_check){
-    if(number_to_check % 2 == 0)
+bool is_pair(void* number_to_check){
+
+    int true_number_to_check = *(int*) number_to_check;
+
+    printf("este es el int: %d \n", true_number_to_check);
+
+    if(true_number_to_check % 2 == 0)
         return true;
     else
         return false;
 }
 
-typedef bool (*functionPtr)(int);
+
+int evaluate_matroid (struct Matroid matroid, int size_of_s){
+
+    printf("El valor de matroid S es: %d\n",matroid.S);
+
+    int counter = 0;
+
+    void *arrayI [size_of_s];
+
+    void* element_in_s = matroid.S;
+
+    int num = *(int *)element_in_s;
+
+    printf("El valor de num es: %d\n",num);
 
 
-void evaluate_matroids (struct Matroid matroids_list[], int size_of_matroid_list, int size_of_s){ //intentar sacar el tamano de s
+    for (int element_in_s_index = 0; element_in_s_index < size_of_s ; ++element_in_s_index) {
 
-    //int size_of_matroids_list = sizeof(matroids_list) / sizeof(matroids_list[0]); //works
-
-    #pragma omp parallel for
-
-    for (int matroid_index = 0; matroid_index < size_of_matroid_list; ++matroid_index) {
-
-        struct Matroid matroid_element;
-
-        matroid_element = *(matroids_list + matroid_index);
-
-        functionPtr fnptr = (functionPtr)matroid_element.function; //use the 'generic' function pointer in order to implement the function.
-
-        int counter = 0;
-
-        #pragma omp parallel for
-
-        for (int element_in_s_index = 0; element_in_s_index < size_of_s ; ++element_in_s_index) {
-
-            void *element_in_s = matroid_element.S + element_in_s_index;
-
-            if (fnptr((int) element_in_s)) {
-
-                matroid_element.I[counter];
-                counter++;
-            }
+        if (matroid.function(element_in_s)){
+            arrayI[counter]  = element_in_s;
+            counter++;
         }
-
+        element_in_s = element_in_s+4;
     }
-
+    matroid.I = arrayI;
+    int result =  *(int *)matroid.I + 4;
+    printf("El valor de matroid I es: %d\n", matroid.I);
+    printf("El valor de result es: %d \n", result);
+    return counter;
 }
 
+
+
+
 int main() {
-    struct Matroid test_array[3];
+    //struct Matroid test_array[3];
 
-    struct Matroid test1,test2,test3;
 
-    int array1 [] = {1,2,3};
-    int array2 [] = {4,5,6};
-    int array3 [] = {7,8,9};
+    struct Matroid test1, test2, test3;
 
-    int array4 [3];
-    int array5 [3];
-    int array6 [3];
+    int array1[] = {1, 2, 3};
+    int array2[] = {4, 5, 6};
+    //int array3 [] = {7,8,9};
+
 
     test1.S = array1;
     test2.S = array2;
-    test3.S = array3;
-    test1.I = array4;
-    test2.I = array5;
-    test3.I = array6;
+    //test3.S = array3;
 
-    test_array[0] = test1;
-    test_array[1] = test2;
-    test_array[2] = test3;
+    int arrayI2 = {0, 0, 0};
 
-    test1.function = &is_pair;
+    test1.I = arrayI2;
 
-    test2.function = &is_pair;
+    //test_array[0] = test1;
+    //test_array[1] = test2;
+    //test_array[2] = test3;
 
-    test3.function = &is_pair;
+    test1.function = is_pair;
 
+    test2.function = is_pair;
 
-
-    int vector[5]={0,1,2,3,4};
-    int *p;
-    int i;
-
-    p=&vector[0];//puntero apunte a la dirección del primer elemento del vector
-
-    for(i=0; i<5; i++)
-    {
-        printf("%d \n", p);
-        p++;//El puntero se incrementa para apuntar al siguiente entero
-    }
+    //test3.function = is_pair;
+    printf("El valor de test1 es: %d\n", test2);
 
 
-
-    //evaluate_matroids(test_array,3,3);
+    evaluate_matroid(test2, 3);
+}
 
     //int size_of_matroids_list = sizeof(test_array) / sizeof(test_array[0]);
 
     //printf("%d",size_of_matroids_list);
 
-    for (int i = 0; i < 3; ++i) {
+/*    for (int i = 0; i < 3; ++i) {
 
         int* result = (int*) test_array[i].I;
 
@@ -144,5 +132,4 @@ int main() {
         //printf("%d\n",*newelement);
 
     }
-
-}
+}*/
