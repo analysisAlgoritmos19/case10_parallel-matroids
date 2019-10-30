@@ -84,6 +84,20 @@ int main() {
 
 
 
+    int vector[5]={0,1,2,3,4};
+    int *p;
+    int i;
+
+    p=&vector[0];//puntero apunte a la dirección del primer elemento del vector
+
+    for(i=0; i<5; i++)
+    {
+        printf("%d \n", p);
+        p++;//El puntero se incrementa para apuntar al siguiente entero
+    }
+
+
+
     //evaluate_matroids(test_array,3,3);
 
     //int size_of_matroids_list = sizeof(test_array) / sizeof(test_array[0]);
@@ -98,7 +112,7 @@ int main() {
 
             int * offset = result + j ;
 
-            printf("%d\n", *offset);
+            //printf("%d\n", *offset);
         }
     }
 
@@ -127,7 +141,7 @@ int main() {
         void * element = matroid_element.S; //lib hasta aqui.
         int * newelement = (int * )element + i;
 
-        printf("%d\n",*newelement);
+        //printf("%d\n",*newelement);
 
     }
 
