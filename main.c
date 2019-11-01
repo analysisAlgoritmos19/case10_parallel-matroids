@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <ctype.h>
+#include <stdlib.h>
 
 typedef struct Matroid {
     void *S;
     void *I[6];
     void* (*function) (void *);
+    int type_size;
 }Matroid;
 
 
@@ -13,22 +16,65 @@ int is_pair(void* number_to_check){
     int true_number_to_check = *(int*) number_to_check; //required
 
     if(true_number_to_check % 2 == 0)
+
         return true_number_to_check;
+
+    else
+
+        return false;
+}
+
+char is_letter(void* char_to_check){
+
+    char true_char_to_check = *(char*) char_to_check;
+
+    if(isalpha(true_char_to_check)) {
+        return true_char_to_check;
+    }
     else
         return false;
 }
 
-void show_elements_in_I(Matroid *matroid, int array_size, int data_type_size){
+
+void print_I_char(Matroid *matroid, int array_size){
+
+    printf("Esto pertenece a la matroid %d \n", matroid);
+    for (int i = 0; i < array_size ; ++i) {
+        void* char_to_print= ((matroid->I[i]));
+        printf("%c\n",  char_to_print);
+    }
+}
+
+void print_I_int(Matroid *matroid, int array_size){
 
     printf("Esto pertenece a la matroid %d \n", matroid);
     for (int i = 0; i < array_size ; ++i) {
         void* number_to_print= ((matroid->I[i]));
-        printf("%d \n",  number_to_print);
+        printf("%d\n",  number_to_print);
     }
-};
+}
+
+void print_I_float(Matroid *matroid, int array_size){
+
+    printf("Esto pertenece a la matroid %d \n", matroid);
+    for (int i = 0; i < array_size ; ++i) {
+        void* float_to_print= ((matroid->I[i]));
+        printf("%f\n",  float_to_print);
+    }
+}
+
+void print_I_string(Matroid *matroid, int array_size){
+
+    printf("Esto pertenece a la matroid %d \n", matroid);
+    for (int i = 0; i < array_size ; ++i) {
+        void* string_to_print= ((matroid->I[i]));
+        printf("%s\n",  string_to_print);
+    }
+}
 
 
-int evaluate_matroid(Matroid *matroid, int size_of_s, int type_size){
+
+void evaluate_matroid(Matroid *matroid, int size_of_s){
 
     int counter = 0;
 
@@ -36,45 +82,60 @@ int evaluate_matroid(Matroid *matroid, int size_of_s, int type_size){
 
     for (int element_in_s_index = 0; element_in_s_index < size_of_s ; ++element_in_s_index) {
 
-        void* value_to_send = element_in_s + (element_in_s_index * type_size);
+        void* value_to_send = element_in_s + (element_in_s_index * matroid->type_size);
 
-        if(matroid->function(value_to_send)){
-            matroid->I[counter] = matroid->function(value_to_send);
+        void * function_result = matroid->function(value_to_send);
+
+        if(function_result){
+            matroid->I[counter] = function_result;
             counter++;
         }
 
     }
-    return counter;
 }
 
 
-void evaluate_array_matroid(Matroid* ptr_array_matroid, int sizeArray, int size_of_s, int type_size) {
+void evaluate_array_matroid(Matroid* ptr_array_matroid, int sizeArray, int size_of_s) {
 
     for (int matroid_index = 0; matroid_index < sizeArray; matroid_index++) {
 
-            int counter = evaluate_matroid(ptr_array_matroid + matroid_index , size_of_s, type_size);
-
-            show_elements_in_I(ptr_array_matroid + matroid_index, counter, type_size);
-        }
+        evaluate_matroid(ptr_array_matroid + matroid_index , size_of_s);
+    }
 }
 
 
 int main() {
+
+    Matroid matroid2;
+
+    int* a = (int*) calloc(4, sizeof(int));
+    a[0] = 5;
+
+    matroid2.S = a;
+
+    matroid2.S[1];
+
+    printf("Probando calloc: %d\n",*(int *)matroid2.S);
+
 
     Matroid test_array[3];
 
     Matroid test1, test2, test3;
 
     int array1[] = {2, 6, 10, 13, 16, 20};
-    int array2[] = {4, 5, 6, 15, 17, 21};
+    char array2[] = {'a', 'b', '3', '%', '5', '*'};
     int array3[] = {8, 7, 10, 33, 99, 22};
 
     test1.S = array1;
     test2.S = array2;
     test3.S = array3;
 
+    test1.type_size = 4;
+    test2.type_size = 1;
+    test3.type_size = 4;
+
     test1.function = is_pair;
-    test2.function = is_pair;
+    test2.function = is_letter;
     test3.function = is_pair;
 
     test_array[0] = test1;
@@ -83,5 +144,11 @@ int main() {
 
     //Change size in matroid->I.
 
-    evaluate_array_matroid(test_array, 3, 6, 4);
+    evaluate_array_matroid(test_array, 3, 6);
+
+    print_I_int(&test_array[0], 5);
+
+    print_I_char(&test_array[1],2);
+
+    print_I_int(&test_array[2],3);
 }
