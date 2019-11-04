@@ -5,7 +5,7 @@
 
 typedef struct Matroid {
     void *S;
-    void *I[6];
+    void *I;
     void* (*function) (void *);
     int type_size;
 }Matroid;
@@ -40,8 +40,8 @@ void print_I_char(Matroid *matroid, int array_size){
 
     printf("Esto pertenece a la matroid %d \n", matroid);
     for (int i = 0; i < array_size ; ++i) {
-        void* char_to_print= ((matroid->I[i]));
-        printf("%c\n",  char_to_print);
+        //void* char_to_print= ((matroid->I[i]));
+        //printf("%c\n",  char_to_print);
     }
 }
 
@@ -49,8 +49,8 @@ void print_I_int(Matroid *matroid, int array_size){
 
     printf("Esto pertenece a la matroid %d \n", matroid);
     for (int i = 0; i < array_size ; ++i) {
-        void* number_to_print= ((matroid->I[i]));
-        printf("%d\n",  number_to_print);
+        //void* number_to_print= ((matroid->I[i]));
+        //printf("%d\n",  number_to_print);
     }
 }
 
@@ -58,8 +58,8 @@ void print_I_float(Matroid *matroid, int array_size){
 
     printf("Esto pertenece a la matroid %d \n", matroid);
     for (int i = 0; i < array_size ; ++i) {
-        void* float_to_print= ((matroid->I[i]));
-        printf("%f\n",  float_to_print);
+        //void* float_to_print= ((matroid->I[i]));
+        //printf("%f\n",  float_to_print);
     }
 }
 
@@ -67,12 +67,10 @@ void print_I_string(Matroid *matroid, int array_size){
 
     printf("Esto pertenece a la matroid %d \n", matroid);
     for (int i = 0; i < array_size ; ++i) {
-        void* string_to_print= ((matroid->I[i]));
-        printf("%s\n",  string_to_print);
+        //void* string_to_print= ((matroid->I[i]));
+        //printf("%s\n",  string_to_print);
     }
 }
-
-
 
 void evaluate_matroid(Matroid *matroid, int size_of_s){
 
@@ -87,7 +85,7 @@ void evaluate_matroid(Matroid *matroid, int size_of_s){
         void * function_result = matroid->function(value_to_send);
 
         if(function_result){
-            matroid->I[counter] = function_result;
+            //matroid->I[counter] = function_result;
             counter++;
         }
 
@@ -103,13 +101,12 @@ void evaluate_array_matroid(Matroid* ptr_array_matroid, int sizeArray, int size_
     }
 }
 
-
 int main() {
 
     Matroid matroid2;
 
-    int* a = (int*) calloc(4, sizeof(int));
-    a[0] = 5;
+    void* a = (int*) calloc(4, sizeof(int));
+    //a[0] = 5;
 
     matroid2.S = a;
 
