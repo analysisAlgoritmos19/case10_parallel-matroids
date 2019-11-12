@@ -1,3 +1,3 @@
-/Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids/cmake-build-debug/CMakeFiles/caso10_parallel_matroids.dir
+/cygdrive/c/Users/luisd/Desktop/II Semestre 2019/Analisis de algoritmos/Caso 10 v5/case10_parallel-matroids/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/luisd/Desktop/II Semestre 2019/Analisis de algoritmos/Caso 10 v5/case10_parallel-matroids/cmake-build-debug/CMakeFiles/caso10_parallel_matroids.dir
+/cygdrive/c/Users/luisd/Desktop/II Semestre 2019/Analisis de algoritmos/Caso 10 v5/case10_parallel-matroids/cmake-build-debug/CMakeFiles/edit_cache.dir

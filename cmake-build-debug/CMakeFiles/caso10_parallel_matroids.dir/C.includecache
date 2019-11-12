@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/luisd/Desktop/II Semestre 2019/Analisis de algoritmos/Caso 10 v5/case10_parallel-matroids/main.c
+stdio.h
+-
+stdbool.h
+-
+ctype.h
+-
+stdlib.h
+-
+omp.h
+-
+

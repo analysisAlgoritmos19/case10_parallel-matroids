@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/caso10_parallel_matroids.dir/Matroids.c.o"
   "CMakeFiles/caso10_parallel_matroids.dir/main.c.o"
-  "caso10_parallel_matroids"
   "caso10_parallel_matroids.pdb"
+  "caso10_parallel_matroids.exe"
+  "libcaso10_parallel_matroids.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

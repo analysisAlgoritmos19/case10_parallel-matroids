@@ -4,10 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids/Matroids.c" "/Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids/cmake-build-debug/CMakeFiles/caso10_parallel_matroids.dir/Matroids.c.o"
-  "/Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids/main.c" "/Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids/cmake-build-debug/CMakeFiles/caso10_parallel_matroids.dir/main.c.o"
+  "/cygdrive/c/Users/luisd/Desktop/II Semestre 2019/Analisis de algoritmos/Caso 10 v5/case10_parallel-matroids/main.c" "/cygdrive/c/Users/luisd/Desktop/II Semestre 2019/Analisis de algoritmos/Caso 10 v5/case10_parallel-matroids/cmake-build-debug/CMakeFiles/caso10_parallel_matroids.dir/main.c.o"
   )
-set(CMAKE_C_COMPILER_ID "AppleClang")
+set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH

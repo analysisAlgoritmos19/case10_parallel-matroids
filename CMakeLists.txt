@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.14.5)
 project(caso10_parallel_matroids C)
 
 set(CMAKE_C_STANDARD 99)
@@ -10,4 +10,4 @@ if (OPENMP_FOUND)
     set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 endif()
 
-add_executable(caso10_parallel_matroids main.c Matroids.h Matroids.c)
+add_executable(caso10_parallel_matroids main.c)

@@ -1,6 +1,6 @@
-"/Users/esteban/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids"
--- Could NOT find OpenMP_C (missing: OpenMP_C_FLAGS OpenMP_C_LIB_NAMES) 
--- Could NOT find OpenMP (missing: OpenMP_C_FOUND) 
+C:\Users\luisd\.CLion2019.2\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/cygdrive/c/Users/luisd/Desktop/II Semestre 2019/Analisis de algoritmos/Caso 10 v5/case10_parallel-matroids"
+-- Found OpenMP_C: -fopenmp  
+-- Found OpenMP: TRUE   
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/esteban/Documents/TEC/IV Semestre/Análisis de algoritmos/caso10_parallel-matroids/cmake-build-debug
+-- Build files have been written to: /cygdrive/c/Users/luisd/Desktop/II Semestre 2019/Analisis de algoritmos/Caso 10 v5/case10_parallel-matroids/cmake-build-debug
