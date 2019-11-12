@@ -118,10 +118,10 @@ int intersection_of_two(void* list, Matroid* ptr_matroid,int list_size){
     printf("list_size %d \n", list_size);
 
     for (int element_in_list = 0; element_in_list < list_size ; ++element_in_list) {
-        printf("Interseccion es %d\n", (*(int*)(list+(element_in_list*4))));
+        printf("El elemento es list es %d\n", (*(int*)(list+(element_in_list*4))));
         for (int element_matroid = 0; element_matroid < ptr_matroid->size_of_i ; ++element_matroid) {
             if((*(int*)list+(element_in_list*4)) == ptr_matroid->I[element_matroid]){
-                printf("Interseccion que entro es %d\n", (*(int*)(list+element_in_list)));
+                printf("Interseccion que entro es %d\n", (*(int*)(list+(element_in_list*4))));
                 array_intersection[counter] = ptr_matroid->I[element_matroid];
                 counter++;
             }
@@ -140,6 +140,7 @@ void * intersection_aux(Matroid* ptr_array_matroid, int amount_of_matroids){
     for(int matroid_index = 1; matroid_index < amount_of_matroids; matroid_index++){
         list_size = intersection_of_two(&list, ptr_array_matroid + matroid_index, list_size);
     }
+
     for (int j = 0; j < list_size ; ++j) {
         printf("El elemento %d pertenece a la interseccion \n", *(int*)(list+list_size));
     }
@@ -156,20 +157,18 @@ void *intersection(Matroid* ptr_array_matroid, int amount_of_matroids){
     for (int element_in_ptr = 0; element_in_ptr < list_size ; ++element_in_ptr) {
         list[element_in_ptr] = ptr_array_matroid->I[element_in_ptr];
     }
-
     for(int matroid_index = 1; matroid_index < amount_of_matroids; matroid_index++){
         int counter = 0;
 #pragma omp parallel for collapse(2)
         for (int element_in_list = 0; element_in_list < list_size ; ++element_in_list) {
             for (int element_matroid = 0; element_matroid < (ptr_array_matroid + matroid_index)->size_of_i ; ++element_matroid) {
                 if(list[element_in_list] == (ptr_array_matroid + matroid_index)->I[element_matroid]){
-                    //printf("Interseccion en el nucleo %d \n", omp_get_thread_num());
+                    printf("Interseccion en el nucleo %d \n", omp_get_thread_num());
                     list_aux[counter] = (ptr_array_matroid + matroid_index)->I[element_matroid];
                     counter++;
                 }
             }
         }
-
         list_size = counter;
         //printf("El largo de list_size despues del for es %d\n", list_size);
         for (int i = 0; i < list_size ; ++i) {
@@ -180,7 +179,6 @@ void *intersection(Matroid* ptr_array_matroid, int amount_of_matroids){
         return array_intersection;*/
         //intersection_of_two(list, ptr_array_matroid + matroid_index, (ptr_array_matroid + matroid_index - 1)->size_of_i );
     }
-
     //imprimir la interseccion
 
     printf("\nEl resultado de la interseccion es: \n");
